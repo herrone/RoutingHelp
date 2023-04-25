@@ -1,0 +1,9 @@
+.redButton{
+    background-color: red;
+}
+.orangeButton{
+    background-color: orange;
+}
+.column{
+    max-width:100px;
+}

@@ -1,0 +1,139 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height:700px;
+    margin-top:30px;
+  }
+
+.expandButton{
+    color:purple
+}
+.redButton{
+    background-color: red;
+}
+  .lilacButton{
+    background-color: lavender;
+  }
+  .orangeButton{
+    background-color: lightcoral;
+  }
+  .greenButton{
+    background-color: lightgreen;
+  }
+  
+  .sidebar {
+    width: 120px;
+    margin-top:20px;
+    margin-right:15px;
+    background-color: white;
+    /* Add styles for the sidebar here */
+  }
+  
+  .main-content {
+    flex: 1;
+    overflow-y: scroll;
+    /* Add styles for the main content here */
+  }
+  .stamp-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+.filters{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filters select {
+    width: 110px;
+    margin-bottom: 10px;
+  }
+  .label  {
+    font-size: x-small;
+    color: coral;
+  }
+  /* Styles for the stamp list */
+.stamp-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+  
+  .stamp {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    max-width: 200px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+    width: 100%;
+  }
+  
+  .stamp:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .stamp .stamp-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+  }
+  
+  .stamp .stamp-content {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .stamp .stamp-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .stamp .stamp-content p {
+    font-size: 0.8rem;
+    margin: 5px 0;
+  }
+  
+  .stamp .stamp-content .stamp-description {
+    display: none;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+  }
+  
+  .stamp .stamp-content .expand-button {
+    background-color: #ccc;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    padding: 5px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+  }
+  
+  .stamp .stamp-content .expand-button:hover {
+    background-color: #555;
+  }
+  
+  @media (max-width: 768px) {
+    .stamp-list {
+      justify-content: center;
+    }
+  
+    .stamp {
+      margin-right: 0;
+    }
+  }
+  

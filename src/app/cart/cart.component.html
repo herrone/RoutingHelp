@@ -1,0 +1,67 @@
+<p style="font-size: 50px;"> Your Cart </p>
+<table *ngIf="stampsInCart.length > 0">
+  <thead>
+    <tr class="column">
+      <th>Name</th>
+      <th>Condition</th>
+      <th>Watermark</th>
+      <th>Colour</th>
+      <th>Monarch</th>
+      <th>Year of Release</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="column" *ngFor="let stamp of stampsInCart">
+      <td>{{ stamp.name }}</td>
+      <td>{{ stamp.condition }}</td>
+      <td>{{ stamp.watermark }}</td>
+      <td>{{ stamp.colour }}</td>
+      <td>{{ stamp.monarch }}</td>
+      <td>{{ stamp.yearOfRelease }}</td>
+      <td> £{{ stamp.value }}</td>
+      <td><button class="redButton">remove</button></td>
+      <td><button class="orangeButton">add another </button></td>
+    </tr>
+  </tbody>
+</table>
+<button *ngIf="stampsInCart.length > 0" routerLink="/pay-component" routerLinkActive="active" class = "greenButton"> Buy Now!</button>
+<p *ngIf="stampsInCart.length == 0"> Your Cart is empty</p>
+<button *ngIf="stampsInCart.length == 0" routerLink="/stamps-component" routerLinkActive="active" class = "greenButton"> Shop Now!</button>
+
+
+
+      <!-- <tr ng-repeat="x in stampsInCart">
+        <td>{{ x.name }}</td>
+      <td>{{ x.condition }}</td>
+      <td>{{ x.watermark }}</td>
+      <td>{{ stamp.colour }}</td>
+      <td>{{ stamp.monarch }}</td>
+      <td>{{ stamp.yearOfRelease }}</td>
+      <td> {{stamp.value }} </td>
+      <td><button>remove All</button></td>
+      <td><button>lower quantity </button></td>
+      <td><button>add another </button></td>
+    </tr> 
+</table>
+
+<div *ngFor="let stamp of stampsInCart"> 
+  {{stamp.name}} 
+  {{stamp.condition}} 
+  {{stamp.watermark}} 
+ {{stamp.colour}} 
+  {{stamp.monarch}} 
+ {{stamp.yearOfRelease}} 
+  {{stamp.value}} 
+    <button (click) = "removeStampFromCart(stamp)" class="redButton"> remove from cart </button>
+</div> 
+
+<button routerLink="/pay-component" routerLinkActive="active" class = "greenButton"> Buy Now!</button>
+<p> Your Cart </p>
+
+ <div *ngFor="let stamp of stampsInCart"> {{stamp.name}} {{stamp.value * 2}}
+    <button (click) = "removeStampFromCart(stamp)" class="redButton"> remove from cart </button>
+</div> 
+
+<button routerLink="/pay-component" routerLinkActive="active" class = "greenButton"> Buy Now!</button>
+-->

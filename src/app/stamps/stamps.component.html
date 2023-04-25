@@ -1,0 +1,127 @@
+<div class="container">
+    <div class="sidebar">
+<div class="filters">
+    <p> {{stampsInCart.length}} </p>
+    <label class="label">Filter by colour: </label>
+    <select [(ngModel)]="selectedColour">
+        <option value="" disabled selected>Select a colour</option>
+        <option *ngFor="let stamp of stamps">{{stamp.colour}}</option>
+    </select>
+    <label class="label">Filter by Name: </label>
+    <select [(ngModel)]="selectedName">
+        <option value="" disabled selected>Select a name</option>
+        <option *ngFor="let stamp of stamps">{{stamp.name}}</option>
+    </select>
+    <label class="label">Filter by Monarch: </label>
+    <select  [(ngModel)]="selectedMonarch">
+        <option value="" disabled selected>Select a monarch</option>
+        <option *ngFor="let stamp of stamps">{{stamp.monarch}}</option>
+    </select>
+    <label class="label">Filter by Year: </label>
+    <select [(ngModel)]="selectedYearOfRelease">
+        <option value="" disabled selected>Select a year</option>
+        <option *ngFor="let stamp of stamps">{{stamp.yearOfRelease}}</option>
+    </select>
+   
+    <label class="label">Filter by Condition: </label>
+    <select [(ngModel)]="selectedCondition">
+        <option value="" disabled selected>Select a condition</option>
+        <option *ngFor="let stamp of stamps">{{stamp.condition}}</option>
+    </select>
+    <label class="label">Filter by Watermark: </label>
+    <select  [(ngModel)]="selectedWatermark">
+        <option value="" disabled selected>Select a watermark/option>
+        <option *ngFor="let stamp of stamps">{{stamp.watermark}}</option>
+    </select>
+    <label class="label">Filter by Design Name: </label>
+    <select  [(ngModel)]="selectedDesignName">
+        <option value="" disabled selected>Select a design</option>
+        <option *ngFor="let stamp of stamps">{{stamp.designName}}</option>
+    </select>
+    <label class="label">Filter by Country: </label>
+    <select [(ngModel)]="selectedCountryOfProduction">
+        <option value="" disabled selected>Select a country</option>
+        <option *ngFor="let stamp of stamps">{{stamp.countryOfProduction}}</option>
+    </select>
+    <button (click)="searchStamps()" [ngStyle] = "{'background-color':'green', 'width':'100px'}"> Search </button>
+    <button (click)="clearFilters()" class="redButton"> Clear Filters </button>
+</div>
+  <div>
+  </div>
+  <!--
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6" *ngFor="let stamp of stamps.slice(0, 4)">
+        <div class="card">
+            <img [src]="stamp.pictureUrlLink" class="card-img-top" alt="{{stamp.name}}">
+          <div class="card-body">
+            <h5 class="card-title">{{stamp.name}}</h5>
+            <p class="card-text">{{stamp.monarch}} | {{stamp.yearOfRelease}} | {{stamp.value}} | {{stamp.condition}}</p>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#stampModal{{stamp.name}}">Expand</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+</div>
+<div class="main-content">
+  <div class="stamp-container">
+    <div class="stamp" *ngFor="let stamp of stamps; let i=index">
+        <img [src]="stamp.pictureUrlLink" alt="{{ stamp.name }} stamp image">
+        <div class="details">
+          <h3>{{ stamp.name }}</h3>
+          <p><strong>Monarch:</strong> {{ stamp.monarch }}</p>
+          <p><strong>Year of Release:</strong> {{ stamp.yearOfRelease }}</p>
+          <p><strong>Value:</strong> £{{ stamp.value }}</p>
+          <p><strong>Condition:</strong> {{ stamp.condition }}</p>
+          <p><strong>Watermark:</strong> {{ stamp.watermark }}</p>
+          <div class="description" *ngIf="showDescription[i]">
+            <p> {{ stamp.description }}</p>
+        </div>
+          <button (click)="addToCart(stamp)" class="greenButton"> Add to Cart </button>
+            <button routerLink="/buyIt-component" class="orangeButton"> Buy Now </button>
+            <button routerLink="/placeOffer-component" class="lilacButton"> Submit offer </button>
+
+          <button class="expandButton"(click)="toggleDescription(i)">Expand</button>
+         
+
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+  
+  <!-- Stamp Modals 
+  <div *ngFor="let stamp of stamps" class="modal fade" id="stampModal{{stamp.name}}" tabindex="-1" role="dialog" [attr.aria-labelledby]="'stamp-details-' + stamp.name" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="stampModal{{stamp.name}}Label">{{stamp.name}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-4">
+                <img [src]="stamp.pictureUrlLink" alt="{{stamp.name}}">
+            </div>
+            <div class="col-md-8">
+              <h4>{{stamp.designName}}</h4>
+              <p><strong>Monarch: </strong>{{stamp.monarch}}</p>
+              <p><strong>Year of Release: </strong>{{stamp.yearOfRelease}}</p>
+              <p><strong>Country of Production: </strong>{{stamp.countryOfProduction}}</p>
+              <p><strong>Value: </strong>{{stamp.value}}</p>
+              <p><strong>Condition: </strong>{{stamp.condition}}</p>
+              <p><strong>Description: </strong>{{stamp.description}}</p>
+              <p><strong>Watermark: </strong>{{stamp.watermark}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+-->
